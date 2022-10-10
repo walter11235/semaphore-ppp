@@ -1,13 +1,6 @@
-import { Component, VERSION } from '@angular/core';
-import {
-  BehaviorSubject,
-  combineLatest,
-  interval,
-  Observable,
-  of,
-  timer,
-} from 'rxjs';
-import { map, takeUntil, withLatestFrom, exhaustMap } from 'rxjs/operators';
+import { Component } from '@angular/core';
+import { BehaviorSubject, interval, Observable, of } from 'rxjs';
+import { map, withLatestFrom, exhaustMap } from 'rxjs/operators';
 
 @Component({
   selector: 'my-app',
