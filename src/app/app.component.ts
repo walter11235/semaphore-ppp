@@ -15,6 +15,7 @@ export class AppComponent {
   private _observableBuffer;
 
   constructor() {
+    // option 1: use exhaustMap
     this.sourceInterval
       .pipe(
         withLatestFrom(this.mySemaphore),
@@ -29,6 +30,7 @@ export class AppComponent {
       )
       .subscribe(console.log);
 
+    // Option 2: use filter
     // this.sourceInterval
     //   .pipe(
     //     withLatestFrom(this.mySemaphore),
