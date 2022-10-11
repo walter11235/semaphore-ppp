@@ -12,7 +12,7 @@ export class AppComponent {
 
   public mySemaphore = new BehaviorSubject(false);
 
-  public observableBuffer;
+  private _observableBuffer;
 
   constructor() {
     this.sourceInterval
@@ -22,7 +22,7 @@ export class AppComponent {
           semaphoreEmission
             ? new Observable<void>((subscriber) => {
                 console.log('Panel is opening...');
-                this.observableBuffer = subscriber;
+                this._observableBuffer = subscriber;
               })
             : of(sourceIntervalEmission)
         )
@@ -44,6 +44,6 @@ export class AppComponent {
 
   public continueEpic() {
     this.mySemaphore.next(false);
-    this.observableBuffer.complete();
+    this._observableBuffer.complete();
   }
 }
